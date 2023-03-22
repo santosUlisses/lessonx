@@ -1,6 +1,8 @@
 <?php
 require_once 'atividade.php';
+
 session_start();
+$listaCursos= $_SESSION['listaCurso'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -58,11 +60,54 @@ session_start();
             </ul>
         </div>
     </nav>
-<body>
+
         
     <div class="container">
 <h1 style="text-align: center;">Lista</h1>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Professor</th>
+      <th scope="col">Curso</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <?php
+      if ( isset($listaCursos) && empty($listaCursos) == false ) {
+        $cont=1;
+        foreach($listaCursos as $curso){
+            $nomeCurso= $curso['nomeCurso'];
+            $professor= $curso ['professor'];
+        
+    ?>
+        <tr>
+        <td><?=$cont?></td>
+      <td><?=$nomeCurso?></td>
+      <td><?=$professor?></td>
+      </tr>
+      <?php
+                $cont++;        
+                    } 
+
+                    } else {
+                ?>
+                        <tr>
+                            <td colspan="3">Não há cursos cadastrados</td>
+                        </tr>
+                <?php
+                    }
+
+                    unset($_SESSION['listaCurso']);
+                ?>
+    
+    
+    
+  </tbody>
+</table>
+                </div>
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

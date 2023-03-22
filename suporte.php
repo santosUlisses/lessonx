@@ -69,7 +69,7 @@
                         id="professor" placeholder="Professor do curso" name="professor" required></div><br><br>
                 <button type="submit" class="btn btn-primary" name="bt_cadastrarCurso" id="enviar">Enviar</button>
                 <button type="reset" class="btn btn-secondary">Limpar</button>
-                <a href="listaCurso.php"><button type="submit" class="btn btn-dark">Lista</a>
+                <a href="consulta-curso.php"><button type="submit" class="btn btn-dark">Lista</a>
             </form>
         </div>
     </div>
